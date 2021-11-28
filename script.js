@@ -1,25 +1,34 @@
 //start the game
 //set the question
 //select answer
-const startButton = document.getElementById('start-btn') // this "points" to an element on our document
+const startButton = document.getElementById('start-btn') 
+const nextButton = document.getElementById('next-btn')// this "points" to an element on our document
 const questionContainer = document.getElementById('question-container')
 let answerButtonsArr = document.querySelectorAll(".answer-btn")
 let mixedQuestions, currentQuestions
 const questionsEl =document.getElementById('questions')
 const answerEl = document.getElementById('answer-btn')
 
-
 console.log(answerButtonsArr)
 
 startButton.addEventListener('click', startGame)
+nextButton.addEventListener('click', () => {
+    questionEl++
+    nextQuestion()
+})
 
 function startGame() {
     console.log('Quiz Has Begun')
     startButton.classList.add('hide')
-    mixedQuestions = question.sort()
+    mixedQuestions = question.sort(() => Math.random -.2)
     currentQuestions = 0
     nextQuestion()
 
+}
+function nextQuestion() {
+    resetState() 
+        nextQuestion(mixedQuestions,[questionEl])
+    
 }
 
 function nextQuestion() {
@@ -38,9 +47,10 @@ function nextQuestion() {
   })
 }
 function resetState()
-nextQuestion.classList('hide')
-function showQuestion(question)
-questionsEl.innerText = question.question
+nextButton.classList.add('hide')
+while (answerEl.firstChild)
+answerEl.removeChild
+(answerEl.firstChild)
 
 function selectAnswer() {
 
@@ -57,7 +67,7 @@ const questionArr = [
         ]
     },
     {
-        question: ' what is the " # " refrencing?',
+        question: ' what is the " # " refrencing in CSS markup?',
         answers: [
             { text: 'an Id', correct: true},
             { text: 'a class', correct: false },
