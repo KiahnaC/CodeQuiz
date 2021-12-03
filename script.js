@@ -1,10 +1,10 @@
 //start the game
 //set the question
 //select answer
-const startButton = document.getElementById('startBtn')
-const nextButton = document.getElementById('nextBtn')
+const startButton = document.getElementById('startBtnBtn')
+const nextButton = document.getElementById('nextBtnBtn')
 const questionsContainer = document.getElementById('questions-container')
-const questionEl = document.getElementById('questions')
+const questionEl = document.getElementById('question')
 const answerBtn = document.getElementById('answerBtn')
 
 let mixedQuestions,currentQuestion;
@@ -15,12 +15,6 @@ nextButton.addEventListener('click',() =>{
     currentQuestion++
     nextQuestion()
 })
-
-
-
-
-
-
 function beginQuiz() {
     startButton.classList.add('hide')
     mixedQuestions=question.questionsContainer(() =>Math.random() - .5)
@@ -30,17 +24,11 @@ function beginQuiz() {
     quizScoreboard=0
 }
 
-
-
 function nextQuestion(){
     resetState();
     showQuestions(mixedQuestions[currentQuestion])
 
 }
-
-
-
-
 
 //This function is going to allow the user to see and interact with the prompts
 function showQuestions(question){
@@ -55,9 +43,6 @@ function showQuestions(question){
         button.addEventListener('click', targetBtn)
         answerBtn.appendChild(button)
     })
-
-
-
 
 function resetState(){
     clearStatus(document.body)
@@ -108,7 +93,7 @@ function clearStatus(element){
 }
 
 // Questoins that users will be asked
-const Questions = [ 
+const Question = [ 
     { question: "What is a stylesheet used when doing web design?",
 		answers: [
             {text: 'Css', correct: true},
@@ -158,4 +143,4 @@ const Questions = [
         {text: 'Control + S', correct: false},
         ],
     },
-]};
+]}
