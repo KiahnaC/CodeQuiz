@@ -10,6 +10,54 @@ const answerBtn = document.getElementById('answerBtn')
 let mixedQuestions,currentQuestion;
 let quizScoreboard =0;
 
+startButton.addEventListener('click', beginQuiz)
+nextButton.addEventListener('click',() =>{
+    currentQuestion++
+    nextQuestion()
+})
+
+
+
+
+
+
+function beginQuiz() {
+    startButton.classList.add('hide')
+    mixedQuestions=question.questionsContainer(() =>Math.random() - .5)
+    currentQuestion=0;
+    questionsContainer.classList.remove('hide')
+    nextQuestion()
+    quizScoreboard=0
+}
+
+
+
+function nextQuestion(){
+    resetState();
+    showQuestions(mixedQuestions[currentQuestion])
+
+}
+
+
+
+
+
+//This function is going to allow the user to see and interact with the prompts
+function showQuestions(question){
+    questionEl.innerText=question.question;
+    questionsContainer.answers.forEach((answer) => {
+        const buttin = document.createElement('button')
+        button.innerText=answer.text;
+        button.classList.add('btn')
+        if(answer.correct){
+            buttone.dataset.correct =answer.correct
+        }
+        button.addEventListener('click', targetBtn)
+        answerBtn.appendChild(button)
+    })
+
+
+
 
 function resetState(){
     clearStatus(document.body)
@@ -19,13 +67,13 @@ function resetState(){
     }
 }
 
-
-function quizeAnswer(e){
+//This function is going to allo the user to interact with the answers
+function quizAnswer(e){
     const tagetBtn=e.target
     const correct=targetBtn.dataset.correct
     setStatus(document.body,correct)
-    Array.from(answerBtn.childern).forEach(button) => {
-        setStatus,button.dataset.correct)
+    Array.from(answerBtn.childern).forEach((button) => {
+        setStatus(button.dataset.correct)
     })
     if(mixedQuestions.length > currentQuestion +1){
         nextButton.classList.remove("hide")
@@ -40,7 +88,7 @@ function quizeAnswer(e){
 document.getElementById('correct-answers').innerText=quizScoreboard
 
 
-
+//This function is setting the if and else statement to discern the right and wrong answers
 
 function setStatus(element, correct){
     clearStatus(element)
@@ -53,12 +101,13 @@ function setStatus(element, correct){
     }
 }
 
-
+// Remove and add classes
 function clearStatus(element){
     element.classList.remove('correct')
     element.classList.remove('wrong')
 }
 
+// Questoins that users will be asked
 const Questions = [ 
     { question: "What is a stylesheet used when doing web design?",
 		answers: [
@@ -66,7 +115,7 @@ const Questions = [
             {text: 'Javascript',correct: false},
             {text: 'Css', correct: false},
             {text: 'Css', correct: false},
-            ]
+            ],
 			
 		},
 	
@@ -77,7 +126,7 @@ const Questions = [
             {text: 'Javascript',correct: false},
             {text: 'basic mockup of page', correct: true},
             {text: 'Styling', correct: false},
-            ]
+            ],
 	
 	},
     {
@@ -86,8 +135,8 @@ const Questions = [
             {text: '#script.js', correct: false},
             {text: '<link src=script.js></link>',correct: false},
             {text: '@script.js', correct: false},
-            {text: '<script defer src="script.js"></script>', correct: true},
-            ]
+            {text: '<script type="text/javascript" src="yourfile.js"></script>', correct: true},
+            ],
 	},
 
     {
@@ -97,7 +146,7 @@ const Questions = [
             {text: 'MDN',correct: true},
             {text: 'twitter', correct: false},
             {text: 'Apple Music', correct: false},
-            ]
+            ],
 	},
 
 {
@@ -107,58 +156,6 @@ const Questions = [
         {text: 'Control + Z',correct: false},
         {text: 'Command + S', correct: true},
         {text: 'Control + S', correct: false},
-        ]
-},
-]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        ],
+    },
+]};
