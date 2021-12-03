@@ -3,46 +3,13 @@
 //select answer
 const startButton = document.getElementById('startBtnBtn')
 const nextButton = document.getElementById('nextBtnBtn')
-const questionsContainer = document.getElementById('questions-container')
+const questionsContainer = document.getElementById('question-container')
 const questionEl = document.getElementById('question')
 const answerBtn = document.getElementById('answerBtn')
 
 let mixedQuestions,currentQuestion;
 let quizScoreboard =0;
 
-startButton.addEventListener('click', beginQuiz)
-nextButton.addEventListener('click',() =>{
-    currentQuestion++
-    nextQuestion()
-})
-function beginQuiz() {
-    startButton.classList.add('hide')
-    mixedQuestions=question.questionsContainer(() =>Math.random() - .5)
-    currentQuestion=0;
-    questionsContainer.classList.remove('hide')
-    nextQuestion()
-    quizScoreboard=0
-}
-
-function nextQuestion(){
-    resetState();
-    showQuestions(mixedQuestions[currentQuestion])
-
-}
-
-//This function is going to allow the user to see and interact with the prompts
-function showQuestions(question){
-    questionEl.innerText=question.question;
-    questionsContainer.answers.forEach((answer) => {
-        const buttin = document.createElement('button')
-        button.innerText=answer.text;
-        button.classList.add('btn')
-        if(answer.correct){
-            buttone.dataset.correct =answer.correct
-        }
-        button.addEventListener('click', targetBtn)
-        answerBtn.appendChild(button)
-    })
 
 function resetState(){
     clearStatus(document.body)
@@ -51,7 +18,25 @@ function resetState(){
         answerBtn.removeChild(answerBtn.firstChild)
     }
 }
-
+// Remove and add classes
+function clearStatus(element){
+    element.classList.remove('correct')
+    element.classList.remove('wrong')
+}
+startButton.addEventListener('click', beginQuiz)
+nextButton.addEventListener('click',() =>{
+    currentQuestion++
+  
+})
+function beginQuiz() {
+    startButton.classList.add('hide')
+    mixedQuestions=questions.questionsContainer(() =>Math.random() - .5)
+    currentQuestion=0;
+}
+    questionsContainer.classList.remove('hide')
+    quizScoreboard=0
+    console.log("you have begun the quiz!")
+   
 //This function is going to allo the user to interact with the answers
 function quizAnswer(e){
     const tagetBtn=e.target
@@ -69,8 +54,10 @@ function quizAnswer(e){
     }
     if(tagetBtn.dataset = correct) {
         quizScoreboard++
+        console.log('Answers are showing!')
 }
-document.getElementById('correct-answers').innerText=quizScoreboard
+document.getElementById('correctAnswers').innerText=quizScoreboard
+
 
 
 //This function is setting the if and else statement to discern the right and wrong answers
@@ -85,15 +72,8 @@ function setStatus(element, correct){
     }
     }
 }
-
-// Remove and add classes
-function clearStatus(element){
-    element.classList.remove('correct')
-    element.classList.remove('wrong')
-}
-
-// Questoins that users will be asked
-const Question = [ 
+// Questions that users will be asked
+const questions = [ 
     { question: "What is a stylesheet used when doing web design?",
 		answers: [
             {text: 'Css', correct: true},
@@ -143,4 +123,23 @@ const Question = [
         {text: 'Control + S', correct: false},
         ],
     },
-]}
+]
+//This function is going to allow the user to see and interact with the prompts
+function showQuestions(questions){
+    questionEl.innerText=questions.questions;
+    questionsContainer.answers.forEach((answer) => {
+        const button = document.createElement('button')
+        button.innerText=answer.text;
+        button.classList.add('btn')
+        if(answer.correct){
+            button.dataset.correct =answer.correct
+        
+        button.addEventListener('click', targetBtn)
+        answerBtn.appendChild(button)
+        console.log("questions have populated for user")
+        }
+        })
+    }
+
+
+
