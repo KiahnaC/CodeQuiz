@@ -27,7 +27,11 @@ startButton.addEventListener('click', beginQuiz)
 nextButton.addEventListener('click',() =>{
     currentQuestion++
   
-})
+});
+function questions(){
+    const questionsContainer= questions
+    console.log('question container defined!')
+}
 function beginQuiz() {
     startButton.classList.add('hide')
     mixedQuestions=questions.questionsContainer(() =>Math.random() - .5)
@@ -39,7 +43,7 @@ function beginQuiz() {
    
 //This function is going to allo the user to interact with the answers
 function quizAnswer(e){
-    const tagetBtn=e.target
+    const targetBtn=e.target
     const correct=targetBtn.dataset.correct
     setStatus(document.body,correct)
     Array.from(answerBtn.childern).forEach((button) => {
@@ -52,7 +56,7 @@ function quizAnswer(e){
         startButton.innerText="restart"
         startButton.classList.remove("hide")
     }
-    if(tagetBtn.dataset = correct) {
+    if(targetBtn.dataset = correct) {
         quizScoreboard++
         console.log('Answers are showing!')
 }
