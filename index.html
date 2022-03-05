@@ -1,31 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  
-  <link href="style.css" rel="stylesheet">
-<title>Code Quiz</title>
-  </head>
-  <body>
-    <div class="container">
-      <div id="question-container" class="hide">
-              <div id='answerBtn' class="gridBtn">
-                  <button class="btn"> Answer 1 </button>
-                  <button class="btn"> Answer 2 </button>
-                  <button class="btn"> Answer 3</button>
-                  <button class="btn"> Answer 4 </button>
-              </div>
-              <div>
-                  <button id="startBtnBtn" class="startBtn btn">Start</button>
-                  <button id="nextBtnBtn" class="startBtn btn hide">Next</button>
-      </div>
-      <div class="scoreBoard">
-          <span id="correctAnswers"></span>
-      </div>
-      <script type= "text/javascript" src="script.js"></script>
-    </body>
-</html>
 
-  
+<head>
+    <meta charset="UTF-8">
+    <!-- This is the first step in making the document responsive but scaling the items to screen -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Jamie Morris Homework-4 Code Quiz -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- This is the style links -->
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
+
+    <!-- This is the title-->
+    <title>Code Quiz</title>
+</head>
+
+<body>
+    <!-- Link to highscores -->
+    <a href="HighScores.html">View Highscores</a>
+    <!-- This is a wrapper -->
+    <div id="wrapper">
+        <!-- Div for timer -->
+        <div id="currentTime"></div>
+        <!-- Div for quiz content -->
+        <div id="questionsDiv">
+            <h1>Coding Quiz Challenge</h1>
+            <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect
+                answers
+                will penalize your score/time by ten seconds!</p>
+            <ul id="choicesUl"></ul>
+            <!-- Buttons -->
+            <button id="startTime">Start Quiz</button>
+        </div>
+
+    </div>
+
+
+    <script src="questions.js"></script>
+
+
+</body>
+
+</html>
