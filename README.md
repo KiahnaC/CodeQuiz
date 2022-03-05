@@ -8,4 +8,4 @@ IF the user does not answer the question in time, the timer will run down and re
 ( timer and change of background will be added to resubmit)
 
 codeQuiz  https://kiahnac.github.io/CodeQuiz/
-GitHub  https://github.com/KiahnaC/CodeQuiz 
+GitHub  https://github.com/KiahnaC/CodeQuiz <img width="1440" alt="Screen Shot 2022-03-05 at 2 28 48 PM" src="https://user-images.githubusercontent.com/88855915/156901869-645709fe-be5f-42cb-910b-2257b4d7fbd4.png">
